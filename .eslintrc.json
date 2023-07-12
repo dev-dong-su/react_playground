@@ -8,7 +8,8 @@
     "plugin:@typescript-eslint/recommended",
     "plugin:react/recommended",
     "plugin:import/typescript",
-    "plugin:import/recommended"
+    "plugin:import/recommended",
+    "plugin:storybook/recommended"
   ],
   "overrides": [],
   "parser": "@typescript-eslint/parser",
@@ -19,7 +20,8 @@
   "plugins": [
     "react",
     "@typescript-eslint",
-    "import"
+    "import",
+    "storybook"
   ],
   "settings": {
     "react": {

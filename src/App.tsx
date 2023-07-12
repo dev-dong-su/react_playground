@@ -1,9 +1,10 @@
-import "./App.css";
-import { FC } from "react";
-
-import MainPage from "@pages/MainPage";
+import { FC, Suspense, lazy } from "react";
+import { Helmet } from "react-helmet-async";
+import { Route, Routes } from "react-router-dom";
 
 import ErrorBoundary from "./components/bases/ErrorBoundary";
+
+const MainPage = lazy(() => import("@pages/MainPage"));
 
 interface AppProps {
   children?: never;
@@ -11,9 +12,18 @@ interface AppProps {
 
 const App: FC<AppProps> = () => {
   return (
-    <ErrorBoundary>
-      <MainPage></MainPage>
-    </ErrorBoundary>
+    <>
+      <Helmet>
+        <title>Boilerplate :: devdongsu</title>
+      </Helmet>
+      <ErrorBoundary>
+        <Suspense fallback={<div>loading</div>}>
+          <Routes>
+            <Route path='/' element={<MainPage />} />
+          </Routes>
+        </Suspense>
+      </ErrorBoundary>
+    </>
   );
 };
 
